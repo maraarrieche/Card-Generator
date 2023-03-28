@@ -17,6 +17,13 @@ window.onload = function(randomCard) {
 
   let simboloAbajo = document.getElementById("simboloAbajo");
   simboloAbajo.textContent = simbolo;
+  if (simbolo == "♦" || simbolo == "♥") {
+    simboloAbajo.style.color = "red";
+    simboloArriba.style.color = "red";
+  } else {
+    simboloAbajo.style.color = "black";
+    simboloArriba.style.color = "black";
+  }
 
   let valorCentro = document.getElementById("valorCentro");
   valorCentro.textContent = valor;
