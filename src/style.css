@@ -23,12 +23,19 @@ body {
 
 #simboloAbajo {
   justify-content: flex-end;
-  margin-top: 15px;
   font-size: 80px;
+  transform: rotate(-180deg);
 }
 
 #valorCentro {
   justify-content: center;
   margin-top: 20px;
   font-size: 80px;
+}
+#boton {
+  width: 150px;
+  font-size: 22px;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 40px;
 }

@@ -5,30 +5,49 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-window.onload = function(randomCard) {
-  const pintas = ["♦", "♥", "♠", "♣"];
-  const valores = ["A", "J", "Q", "K"];
+window.onload = function() {
+  function generateRandomCard() {
+    const pintas = ["♦", "♥", "♠", "♣"];
+    const valores = [
+      "A",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "J",
+      "Q",
+      "K"
+    ];
 
-  const simbolo = randomCard(pintas);
-  const valor = randomCard(valores);
+    let simbolo = randomElement(pintas);
+    let valor = randomElement(valores);
 
-  let simboloArriba = document.getElementById("simboloArriba");
-  simboloArriba.textContent = simbolo;
+    let simboloArriba = document.getElementById("simboloArriba");
+    simboloArriba.textContent = simbolo;
 
-  let simboloAbajo = document.getElementById("simboloAbajo");
-  simboloAbajo.textContent = simbolo;
-  if (simbolo == "♦" || simbolo == "♥") {
-    simboloAbajo.style.color = "red";
-    simboloArriba.style.color = "red";
-  } else {
-    simboloAbajo.style.color = "black";
-    simboloArriba.style.color = "black";
+    let simboloAbajo = document.getElementById("simboloAbajo");
+    simboloAbajo.textContent = simbolo;
+    if (simbolo == "♦" || simbolo == "♥") {
+      simboloAbajo.style.color = "red";
+      simboloArriba.style.color = "red";
+    } else {
+      simboloAbajo.style.color = "black";
+      simboloArriba.style.color = "black";
+    }
+
+    let valorCentro = document.getElementById("valorCentro");
+    valorCentro.textContent = valor;
+
+    function randomElement(array) {
+      return array[Math.floor(Math.random() * array.length)];
+    }
   }
-
-  let valorCentro = document.getElementById("valorCentro");
-  valorCentro.textContent = valor;
-
-  function randomCard(array) {
-    return array[Math.floor(Math.random() * array.length)];
-  }
+  generateRandomCard();
+  let button = document.querySelector("#boton");
+  button.addEventListener("click", generateRandomCard);
 };
